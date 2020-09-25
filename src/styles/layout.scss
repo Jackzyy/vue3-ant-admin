@@ -4,12 +4,24 @@
     #layout {
         height: 100%;
 
+        #layout-aside {
+            width: 300px !important;
+        }
+
         #layout-header {
+            height: 60px;
             background-color: #fff;
+
             .trigger {
                 font-size: 18px;
                 cursor: pointer;
             }
+        }
+
+        #layout-content {
+            overflow: hidden;
+            margin: 20px;
+            background-color: #fff;
         }
 
     }

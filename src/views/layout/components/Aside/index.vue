@@ -1,10 +1,20 @@
 <template>
-  <a-layout-sider :collapsed="collapsed" :trigger="null" collapsible>
-    <a-menu theme="dark" mode="inline" v-model:selectedKeys="selectedKeys">
-      <a-menu-item key="1">
+  <a-layout-sider
+    id="layout-aside"
+    :collapsed="collapsed"
+    :trigger="null"
+    collapsible
+  >
+    <a-menu
+      theme="dark"
+      mode="inline"
+      v-model:selectedKeys="selectedKeys"
+      @click="handleMenu"
+    >
+      <a-menu-item key="/dashboard">
         <span>nav 1</span>
       </a-menu-item>
-      <a-menu-item key="2">
+      <a-menu-item key="/navtest">
         <span>nav 2</span>
       </a-menu-item>
       <a-menu-item key="3">
@@ -27,6 +37,13 @@ export default {
     ...mapState('app', {
       collapsed: state => state.collapsed
     })
+  },
+
+  methods: {
+    handleMenu({ item, key, keyPath }) {
+      console.log({ item, key, keyPath })
+      this.$router.push(key)
+    }
   }
 }
 </script>
