@@ -17,10 +17,6 @@ export default {
     Aside,
     Header,
     Content
-  },
-
-  setup() {
-    return {}
   }
 }
 </script>

@@ -1,0 +1,16 @@
+#app {
+    height: 100%;
+
+    #layout {
+        height: 100%;
+
+        #layout-header {
+            background-color: #fff;
+            .trigger {
+                font-size: 18px;
+                cursor: pointer;
+            }
+        }
+
+    }
+}

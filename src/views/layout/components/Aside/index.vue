@@ -1,6 +1,5 @@
 <template>
-  <a-layout-sider v-model:collapsed="collapsed" :trigger="null" collapsible>
-    <div class="logo" />
+  <a-layout-sider :collapsed="collapsed" :trigger="null" collapsible>
     <a-menu theme="dark" mode="inline" v-model:selectedKeys="selectedKeys">
       <a-menu-item key="1">
         <span>nav 1</span>
@@ -16,12 +15,18 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   data() {
     return {
-      collapsed: false,
       selectedKeys: ['1']
     }
+  },
+
+  computed: {
+    ...mapState('app', {
+      collapsed: state => state.collapsed
+    })
   }
 }
 </script>

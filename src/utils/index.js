@@ -6,6 +6,6 @@ import { createApp } from 'vue'
 export default {
   install(Vue) {
     // 注册Bus中间件
-    Vue.config.globalProperties.$bus = createApp()
+    Vue.config.globalProperties.$bus = createApp({})
   }
 }

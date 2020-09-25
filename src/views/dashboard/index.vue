@@ -1,13 +1,13 @@
 <template>
-  <a-button @click="handleClick"></a-button>
+  <div>
+    dashboard
+  </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      key: 222222
-    }
+  setup() {
+    return {}
   }
 }
 </script>

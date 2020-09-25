@@ -2,13 +2,15 @@
   <a-layout-header id="layout-header">
     <menu-unfold-outlined
       v-if="collapsed"
-      @click="() => (collapsed = !collapsed)"
+      class="trigger"
+      @click="handleCollapsed(false)"
     />
-    <menu-fold-outlined v-else @click="() => (collapsed = !collapsed)" />
+    <menu-fold-outlined v-else class="trigger" @click="handleCollapsed(true)" />
   </a-layout-header>
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons-vue'
 export default {
   components: {
@@ -16,14 +18,18 @@ export default {
     MenuFoldOutlined
   },
 
-  data() {
-    return {
-      collapsed: false
-    }
+  computed: {
+    ...mapState('app', {
+      collapsed: state => state.collapsed
+    })
   },
 
-  setup() {
-    return {}
+  methods: {
+    ...mapMutations('app', ['SET_COLLAPSED']),
+
+    handleCollapsed(val) {
+      this['SET_COLLAPSED'](val)
+    }
   }
 }
 </script>

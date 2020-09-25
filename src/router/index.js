@@ -4,13 +4,13 @@ import layout from '@/views/layout'
 const routes = [
   {
     path: '/',
-    redirect: '/home',
+    redirect: '/dashboard',
     component: layout,
     children: [
       {
-        path: '/home',
-        name: 'Home',
-        component: () => import('@/views/Home.vue')
+        path: '/dashboard',
+        name: 'Dashboard',
+        component: () => import('@/views/dashboard')
       }
     ]
   }
