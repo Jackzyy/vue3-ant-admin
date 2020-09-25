@@ -1,0 +1,8 @@
+@import './layout.scss'; // 布局
+@import './transition.scss'; // 路由过度动画
+
+html {
+    height: 100%;
+    font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+    background-color: #f0f3f4;
+}

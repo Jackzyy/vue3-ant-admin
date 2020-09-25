@@ -1,11 +1,15 @@
 <template>
-  <div class="home">
-    home
-  </div>
+  <a-button @click="handleClick"></a-button>
 </template>
 
 <script>
 export default {
-  name: 'Home'
+  data() {
+    return {
+      key: 222222
+    }
+  }
 }
 </script>
+
+<style lang="scss" scoped></style>
