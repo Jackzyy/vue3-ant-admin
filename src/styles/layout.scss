@@ -4,12 +4,9 @@
     #layout {
         height: 100%;
 
-        #layout-aside {
-            width: 300px !important;
-        }
-
         #layout-header {
             height: 60px;
+            padding: 0 25px;
             background-color: #fff;
 
             .trigger {
@@ -19,10 +16,10 @@
         }
 
         #layout-content {
-            overflow: hidden;
             margin: 20px;
+            padding: 10px;
+            overflow: hidden;
             background-color: #fff;
         }
-
     }
 }

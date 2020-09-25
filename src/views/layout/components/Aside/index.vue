@@ -3,6 +3,7 @@
     id="layout-aside"
     :collapsed="collapsed"
     :trigger="null"
+    :width="256"
     collapsible
   >
     <a-menu
@@ -12,13 +13,12 @@
       @click="handleMenu"
     >
       <a-menu-item key="/dashboard">
+        <MenuFoldOutlined />
         <span>nav 1</span>
       </a-menu-item>
       <a-menu-item key="/navtest">
+        <MenuFoldOutlined />
         <span>nav 2</span>
-      </a-menu-item>
-      <a-menu-item key="3">
-        <span>nav 3</span>
       </a-menu-item>
     </a-menu>
   </a-layout-sider>
@@ -26,10 +26,15 @@
 
 <script>
 import { mapState } from 'vuex'
+import { MenuFoldOutlined } from '@ant-design/icons-vue'
 export default {
+  components: {
+    MenuFoldOutlined
+  },
+
   data() {
     return {
-      selectedKeys: ['1']
+      selectedKeys: ['/dashboard']
     }
   },
 
@@ -40,8 +45,7 @@ export default {
   },
 
   methods: {
-    handleMenu({ item, key, keyPath }) {
-      console.log({ item, key, keyPath })
+    handleMenu({ key }) {
       this.$router.push(key)
     }
   }
