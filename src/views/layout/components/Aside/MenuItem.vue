@@ -1,10 +1,10 @@
 <template>
-  <a-menu-item v-if="childrenFilter()" :key="resolvePath(childItem.path)">
+  <a-menu-item v-if="childrenFilter()">
     <MenuFoldOutlined />
     <span>{{ childItem.meta.title }}</span>
   </a-menu-item>
 
-  <a-sub-menu v-else :key="resolvePath(route.path)">
+  <a-sub-menu v-else :key="route.path">
     <template v-slot:title>
       <span>
         <MenuFoldOutlined />

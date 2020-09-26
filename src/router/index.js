@@ -7,8 +7,8 @@ import NavTest from './modules/nav-test'
 export const commonRoutes = [
   {
     path: '/',
-    redirect: '/dashboard',
     component: Layout,
+    redirect: '/dashboard',
     children: [
       {
         path: 'dashboard',
