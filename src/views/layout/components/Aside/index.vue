@@ -9,43 +9,51 @@
     <a-menu
       theme="dark"
       mode="inline"
+      :forceSubMenuRender="true"
+      v-model:openKeys="openKeys"
       v-model:selectedKeys="selectedKeys"
       @click="handleMenu"
     >
-      <a-menu-item key="/dashboard">
-        <MenuFoldOutlined />
-        <span>nav 1</span>
-      </a-menu-item>
-      <a-menu-item key="/navtest">
-        <MenuFoldOutlined />
-        <span>nav 2</span>
-      </a-menu-item>
+      <MenuItem
+        v-for="item in routes"
+        :key="item.path"
+        :route="item"
+        :base-path="item.path"
+      />
     </a-menu>
   </a-layout-sider>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import { MenuFoldOutlined } from '@ant-design/icons-vue'
+import MenuItem from './MenuItem'
+import { commonRoutes } from '@/router'
 export default {
   components: {
-    MenuFoldOutlined
+    MenuItem
   },
 
   data() {
     return {
-      selectedKeys: ['/dashboard']
+      selectedKeys: ['/dashboard'],
+      openKeys: []
     }
   },
 
   computed: {
     ...mapState('app', {
       collapsed: state => state.collapsed
-    })
+    }),
+
+    routes() {
+      console.log(commonRoutes)
+      return commonRoutes
+    }
   },
 
   methods: {
-    handleMenu({ key }) {
+    handleMenu({ item, key, keyPath }) {
+      console.log(item, key, keyPath)
       this.$router.push(key)
     }
   }

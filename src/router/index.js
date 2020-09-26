@@ -1,29 +1,40 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import layout from '@/views/layout'
 
-const routes = [
+import Layout from '@/views/layout'
+import NavTest from './modules/nav-test'
+
+// 公有路由
+export const commonRoutes = [
   {
     path: '/',
     redirect: '/dashboard',
-    component: layout,
+    component: Layout,
     children: [
       {
-        path: '/dashboard',
+        path: 'dashboard',
         name: 'Dashboard',
+        meta: { title: '仪表盘', icon: '' },
         component: () => import('@/views/dashboard')
-      },
-      {
-        path: '/navtest',
-        name: 'NavTest',
-        component: () => import('@/views/nav-test/nav1')
       }
     ]
-  }
+  },
+
+  ...NavTest
 ]
+
+// 私有路由
+export const asyncRoutes = []
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
+  routes: commonRoutes,
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { top: 0 }
+    }
+  }
 })
 
 export default router
